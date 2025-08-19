@@ -1,0 +1,14 @@
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/bin/Debug/net9.0/Services.deps.json
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/bin/Debug/net9.0/Services.runtimeconfig.json
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/bin/Debug/net9.0/Services.dll
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/bin/Debug/net9.0/Services.pdb
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/Services.csproj.AssemblyReference.cache
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/Services.AssemblyInfoInputs.cache
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/Services.AssemblyInfo.cs
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/Services.csproj.CoreCompileInputs.cache
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/Services.dll
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/refint/Services.dll
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/Services.pdb
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/Services.genruntimeconfig.cache
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Services/obj/Debug/net9.0/ref/Services.dll
