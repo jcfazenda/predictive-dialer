@@ -1,6 +1,8 @@
 ﻿
 using Services.Domain.Mapping.Usuario;
- 
+using Services.Domain.Mapping.Campanha;
+using Services.Domain.Mapping.Empresa;
+
 using Microsoft.EntityFrameworkCore;
  
 
@@ -20,8 +22,9 @@ namespace Services
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /* usuarios */
             modelBuilder.ApplyConfiguration(new UsuariosMap());
+            modelBuilder.ApplyConfiguration(new CampanhasMap());
+            modelBuilder.ApplyConfiguration(new EmpresasMap());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -15,17 +15,13 @@ namespace Services.Domain.Mapping.Campanha
             constructor.HasKey(o => o.idCampanha);
 
             constructor.Property(m => m.idEmpresa).HasColumnName("idEmpresa");
-            constructor.Property(m => m.CampanhaNome).HasColumnName("CampanhaNome");
-            constructor.Property(m => m.DataSolicitacao).HasColumnName("DataSolicitacao");
-            constructor.Property(m => m.DataEntregaDiscador).HasColumnName("DataEntregaDiscador");
+            constructor.Property(m => m.CampanhaNome).HasColumnName("CampanhaNome"); 
 
-            /*
-            constructor.HasOne(m => m.Empresas)               // Navegação para Empresa
-                       .WithMany(e => e.Campanhas)          // Uma empresa tem várias campanhas
-                       .HasForeignKey(c => c.idEmpresa)     // FK em Campanhas
-                       .HasPrincipalKey(e => e.idEmpresa); // PK na tabela Empresa
+            constructor.HasOne(m => m.Empresas)            // Uma Campanha tem 1 Empresa
+                    .WithMany(e => e.Campanhas)           // Uma Empresa tem várias Campanhas
+                    .HasForeignKey(c => c.idEmpresa)      // FK em Campanhas
+                    .HasPrincipalKey(e => e.idEmpresa);   // PK em Empresas
 
-            */
         }
     }
 }

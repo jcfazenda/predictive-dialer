@@ -1,3 +1,12 @@
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.csproj.AssemblyReference.cache
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/rpswa.dswa.cache.json
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.GeneratedMSBuildEditorConfig.editorconfig
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.AssemblyInfoInputs.cache
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.AssemblyInfo.cs
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.csproj.CoreCompileInputs.cache
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.MvcApplicationPartsAssemblyInfo.cs
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.sourcelink.json
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/bin/Debug/net9.0/appsettings.Development.json
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/bin/Debug/net9.0/appsettings.json
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/bin/Debug/net9.0/Api.staticwebassets.endpoints.json
@@ -68,15 +77,6 @@
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/bin/Debug/net9.0/Services.dll
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/bin/Debug/net9.0/Services.pdb
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/bin/Debug/net9.0/Infrastructure.pdb
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.csproj.AssemblyReference.cache
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/rpswa.dswa.cache.json
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.GeneratedMSBuildEditorConfig.editorconfig
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.AssemblyInfoInputs.cache
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.AssemblyInfo.cs
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.csproj.CoreCompileInputs.cache
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.MvcApplicationPartsAssemblyInfo.cs
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.MvcApplicationPartsAssemblyInfo.cache
-/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.sourcelink.json
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
@@ -91,3 +91,5 @@
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.pdb
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/Api.genruntimeconfig.cache
 /Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/obj/Debug/net9.0/ref/Api.dll
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/bin/Debug/net9.0/Newtonsoft.Json.dll
+/Users/criattiicloud.com/Desktop/discador/predictive-dialer/src/Api/bin/Debug/net9.0/Twilio.dll

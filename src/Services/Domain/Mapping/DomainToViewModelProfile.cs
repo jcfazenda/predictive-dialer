@@ -44,9 +44,7 @@ namespace Services.Domain.Mapping
                 .ForMember(f => f.idCampanha, t => t.MapFrom(m => m.idCampanha))
                 .ForMember(f => f.idEmpresa, t => t.MapFrom(m => m.idEmpresa))
 
-                .ForMember(f => f.CampanhaNome, t => t.MapFrom(m => m.CampanhaNome))
-                .ForMember(f => f.DataSolicitacao, t => t.MapFrom(m => m.DataSolicitacao))
-                .ForMember(f => f.DataEntregaDiscador, t => t.MapFrom(m => m.DataEntregaDiscador))
+                .ForMember(f => f.CampanhaNome, t => t.MapFrom(m => m.CampanhaNome)) 
                 ;
 
             CreateMap<RegrasDiscagem, RegrasDiscagemOutput>()
@@ -56,7 +54,7 @@ namespace Services.Domain.Mapping
                 .ForMember(f => f.QuantidadeTentativas, t => t.MapFrom(m => m.QuantidadeTentativas))
                 .ForMember(f => f.IntervaloMinutos, t => t.MapFrom(m => m.IntervaloMinutos))
                 ;
-
+                
             CreateMap<StatusDiscagem, StatusDiscagemOutput>()
                 .ForMember(f => f.idStatus, t => t.MapFrom(m => m.idStatus))
                 .ForMember(f => f.NomeStatus, t => t.MapFrom(m => m.NomeStatus))

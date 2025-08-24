@@ -10,21 +10,21 @@ namespace Services.Generics
     public class Generics
     {
  
-public static bool IsEmail(string email)
-{
-    if (string.IsNullOrWhiteSpace(email))
-        return false;
+        public static bool IsEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
 
-    try
-    {
-        var addr = new MailAddress(email);
-        return addr.Address == email;
-    }
-    catch
-    {
-        return false;
-    }
-}
+            try
+            {
+                var addr = new MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public class Resposta
         {

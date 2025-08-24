@@ -1,3 +1,6 @@
+
+using Services.Domain.Views.Output.Empresa;
+
 namespace Services.Domain.Views.Output.Campanha
 {
     public class CampanhasOutput
@@ -5,11 +8,8 @@ namespace Services.Domain.Views.Output.Campanha
         public long idCampanha { get; set; }
         public long idEmpresa { get; set; }
 
-        public string? CampanhaNome { get; set; }
-        public DateTime DataSolicitacao { get; set; }
-        public DateTime DataEntregaDiscador { get; set; }
-        public string? Status { get; set; }
- 
+        public string? CampanhaNome { get; set; } 
 
+        public EmpresasOutput? Empresa { get; set; }
     }
 }

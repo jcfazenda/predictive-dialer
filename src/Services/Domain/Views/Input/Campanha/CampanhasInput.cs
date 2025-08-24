@@ -1,20 +1,16 @@
 using System;
 using System.Collections.Generic;
-using Services.Domain.Models.Cliente;   // Importa a classe Clientes
-using Services.Domain.Models.Operador;   // Importa a classe Operador
+using Services.Domain.Models.Cliente;  
+using Services.Domain.Models.Operador;  
 
-namespace Services.Domain.Views.Input.Campanhas
+namespace Services.Domain.Views.Input.Campanha
 {
     public class CampanhasInput
     {
         public long idCampanha { get; set; } 
         public long idEmpresa { get; set; }
 
-        public string? CampanhaNome { get; set; }
-
-        public DateTime DataSolicitacao { get; set; }
-        public DateTime DataEntregaDiscador { get; set; } 
-        public string? Status { get; set; }  
+        public string? CampanhaNome { get; set; } 
   
     }
 }
