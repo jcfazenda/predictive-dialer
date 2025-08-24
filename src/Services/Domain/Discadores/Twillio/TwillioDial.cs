@@ -7,8 +7,8 @@ namespace Services.Domain.Discadores.Twillio
 {
     public class TwillioDial
     {
-        private readonly string _accountSid = "ACfd0bb3331cfaf0dc8900ea62553b8c9f";
-        private readonly string _authToken = "be2e9d5177d225073f56e8d1f5234e3f";
+        private readonly string _accountSid = "XXXXXXX";
+        private readonly string _authToken = "XXXXXXXXX";
         private readonly string _fromNumber = "+18157832304";
 
         public TwillioDial()
