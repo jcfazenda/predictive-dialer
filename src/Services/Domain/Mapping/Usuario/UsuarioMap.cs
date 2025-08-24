@@ -10,18 +10,18 @@ namespace Services.Domain.Mapping.Usuario
         public void Configure(EntityTypeBuilder<Usuarios> constuctor)
         {
 
-            constuctor.ToTable("usuario");
+            constuctor.ToTable("Usuarios");
 
 
-            constuctor.Property(m => m.Id_Usuario).HasColumnName("Id_Usuario").IsRequired();
-            constuctor.HasKey(o => o.Id_Usuario);
+            constuctor.Property(m => m.idUsuario).HasColumnName("idUsuario").IsRequired();
+            constuctor.HasKey(o => o.idUsuario);
               
-            constuctor.Property(m => m.Usuario_Nome).HasColumnName("Usuario_Nome");
-            constuctor.Property(m => m.Usuario_Sobrenome).HasColumnName("Usuario_Sobrenome");
-            constuctor.Property(m => m.Usuario_Email).HasColumnName("Usuario_Email");
-            constuctor.Property(m => m.Usuario_Senha).HasColumnName("Usuario_Senha");
-            constuctor.Property(m => m.Usuario_Avatar).HasColumnName("Usuario_Avatar"); 
-            constuctor.Property(m => m.Fl_Ativo).HasColumnName("Fl_Ativo");
+            constuctor.Property(m => m.UsuarioNome).HasColumnName("UsuarioNome");
+            constuctor.Property(m => m.UsuarioSobrenome).HasColumnName("UsuarioSobrenome");
+            constuctor.Property(m => m.UsuarioEmail).HasColumnName("UsuarioEmail");
+            constuctor.Property(m => m.UsuarioSenha).HasColumnName("UsuarioSenha");
+            constuctor.Property(m => m.UsuarioAvatar).HasColumnName("UsuarioAvatar"); 
+            constuctor.Property(m => m.Ativo).HasColumnName("Ativo");
 
 
         }

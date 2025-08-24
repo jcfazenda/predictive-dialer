@@ -2,11 +2,11 @@
 {
     public class UsuarioCargoAtividadeOutput
     {
-        public long Id_Usuario_Cargo_Atividade { get; set; }
+        public long idUsuarioCargoAtividade { get; set; }
 
-        public string? Usuario_Cargo_Atividade_Nome { get; set; }
-        public string? Usuario_Cargo_Atividade_Descricao { get; set; }
+        public string? UsuarioCargoAtividadeNome { get; set; }
+        public string? UsuarioCargoAtividadeDescricao { get; set; }
 
-        public bool? Fl_Ativo { get; set; }
+        public bool? Ativo { get; set; }
     }
 }

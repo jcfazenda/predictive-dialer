@@ -8,20 +8,21 @@ namespace Services.Domain.Models.Usuario
         {
         }
 
-        public UsuarioAreaAtuacao(long id_Usuario_Area_Atuacao, string usuario_Area_Atuacao_Nome, string usuario_Area_Atuacao_Descricao, bool? fl_Ativo)
-        {
-            Id_Usuario_Area_Atuacao = id_Usuario_Area_Atuacao;
-            Usuario_Area_Atuacao_Nome = usuario_Area_Atuacao_Nome;
-            Usuario_Area_Atuacao_Descricao = usuario_Area_Atuacao_Descricao;
-            Fl_Ativo = fl_Ativo;
-        }
+public UsuarioAreaAtuacao(long idUsuarioAreaAtuacao, string UsuarioAreaAtuacaoNome, string UsuarioAreaAtuacaoDescricao, bool? Ativo)
+{
+    this.idUsuarioAreaAtuacao = idUsuarioAreaAtuacao;
+    this.UsuarioAreaAtuacaoNome = UsuarioAreaAtuacaoNome;
+    this.UsuarioAreaAtuacaoDescricao = UsuarioAreaAtuacaoDescricao;
+    this.Ativo = Ativo;
+}
 
-        public long Id_Usuario_Area_Atuacao { get; set; }
 
-        public string? Usuario_Area_Atuacao_Nome { get; set; }
-        public string? Usuario_Area_Atuacao_Descricao { get; set; }
+        public long idUsuarioAreaAtuacao { get; set; }
 
-        public bool? Fl_Ativo { get; set; }
+        public string? UsuarioAreaAtuacaoNome { get; set; }
+        public string? UsuarioAreaAtuacaoDescricao { get; set; }
+
+        public bool? Ativo { get; set; }
         public IEnumerable<Usuarios>? Usuarios { get; set; }
     }
 }

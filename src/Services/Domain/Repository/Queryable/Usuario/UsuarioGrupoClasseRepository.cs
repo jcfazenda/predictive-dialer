@@ -17,15 +17,15 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
         public IQueryable<UsuarioGrupoClasse> GetAll(bool active)
         {
-            return DbSet.Where(x => x.Fl_Ativo.HasValue && x.Fl_Ativo.Value == active).AsQueryable();
+            return DbSet.Where(x => x.Ativo.HasValue && x.Ativo.Value == active).AsQueryable();
         }
 
         public bool UpdateStatus(long id)
         {
-            var data = DbSet.FirstOrDefault(x => x.Id_Usuario_Grupo_Classe == id);
+            var data = DbSet.FirstOrDefault(x => x.idUsuarioGrupoClasse == id);
             if (data == null) return false;
 
-            data.Fl_Ativo = !(data.Fl_Ativo ?? false);
+            data.Ativo = !(data.Ativo ?? false);
 
             _context.Update(data);
             _context.SaveChanges();
@@ -39,9 +39,9 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
             var data = new UsuarioGrupoClasse
             {
-                Usuario_Grupo_Classe_Nome = input.Usuario_Grupo_Classe_Nome ?? string.Empty,
-                Usuario_Grupo_Classe_Descricao = input.Usuario_Grupo_Classe_Descricao ?? string.Empty,
-                Fl_Ativo = true
+                UsuarioGrupoClasseNome = input.UsuarioGrupoClasseNome ?? string.Empty,
+                UsuarioGrupoClasseDescricao = input.UsuarioGrupoClasseDescricao ?? string.Empty,
+                Ativo = true
             };
 
             _context.Add(data);
@@ -54,11 +54,11 @@ namespace Services.Domain.Repository.Queryable.Usuario
         {
             if (input == null) return false;
 
-            var data = DbSet.FirstOrDefault(x => x.Id_Usuario_Grupo_Classe == input.Id_Usuario_Grupo_Classe);
+            var data = DbSet.FirstOrDefault(x => x.idUsuarioGrupoClasse == input.idUsuarioGrupoClasse);
             if (data == null) return false;
 
-            data.Usuario_Grupo_Classe_Nome = input.Usuario_Grupo_Classe_Nome ?? string.Empty;
-            data.Usuario_Grupo_Classe_Descricao = input.Usuario_Grupo_Classe_Descricao ?? string.Empty;
+            data.UsuarioGrupoClasseNome = input.UsuarioGrupoClasseNome ?? string.Empty;
+            data.UsuarioGrupoClasseDescricao = input.UsuarioGrupoClasseDescricao ?? string.Empty;
 
             _context.Update(data);
             _context.SaveChanges();
@@ -68,7 +68,7 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
         public bool Remove(long id)
         {
-            var data = DbSet.FirstOrDefault(x => x.Id_Usuario_Grupo_Classe == id);
+            var data = DbSet.FirstOrDefault(x => x.idUsuarioGrupoClasse == id);
             if (data == null) return false;
 
             _context.Remove(data);

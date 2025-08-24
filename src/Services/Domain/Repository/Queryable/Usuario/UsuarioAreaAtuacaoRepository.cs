@@ -17,16 +17,16 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
         public IQueryable<UsuarioAreaAtuacao> GetAll(bool active)
         {
-            var data = DbSet.Where(x => x.Fl_Ativo.HasValue && x.Fl_Ativo.Value == active).AsQueryable();
+            var data = DbSet.Where(x => x.Ativo.HasValue && x.Ativo.Value == active).AsQueryable();
             return data;
         }
 
         public bool UpdateStatus(long id)
         {
-            UsuarioAreaAtuacao? data = DbSet.FirstOrDefault(x => x.Id_Usuario_Area_Atuacao.Equals(id));
+            UsuarioAreaAtuacao? data = DbSet.FirstOrDefault(x => x.idUsuarioAreaAtuacao.Equals(id));
             if (data == null) return false;
 
-            data.Fl_Ativo = !(data.Fl_Ativo ?? false);
+            data.Ativo = !(data.Ativo ?? false);
 
             _context.Update(data);
             _context.SaveChanges();
@@ -40,9 +40,9 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
             UsuarioAreaAtuacao data = new UsuarioAreaAtuacao
             {
-                Usuario_Area_Atuacao_Nome = input.Usuario_Area_Atuacao_Nome,
-                Usuario_Area_Atuacao_Descricao = input.Usuario_Area_Atuacao_Descricao,
-                Fl_Ativo = true
+                UsuarioAreaAtuacaoNome = input.UsuarioAreaAtuacaoNome,
+                UsuarioAreaAtuacaoDescricao = input.UsuarioAreaAtuacaoDescricao,
+                Ativo = true
             };
 
             _context.Add(data);
@@ -55,11 +55,11 @@ namespace Services.Domain.Repository.Queryable.Usuario
         {
             if (input == null) return false;
 
-            UsuarioAreaAtuacao? data = DbSet.FirstOrDefault(x => x.Id_Usuario_Area_Atuacao.Equals(input.Id_Usuario_Area_Atuacao));
+            UsuarioAreaAtuacao? data = DbSet.FirstOrDefault(x => x.idUsuarioAreaAtuacao.Equals(input.idUsuarioAreaAtuacao));
             if (data == null) return false;
 
-            data.Usuario_Area_Atuacao_Nome = input.Usuario_Area_Atuacao_Nome;
-            data.Usuario_Area_Atuacao_Descricao = input.Usuario_Area_Atuacao_Descricao;
+            data.UsuarioAreaAtuacaoNome = input.UsuarioAreaAtuacaoNome;
+            data.UsuarioAreaAtuacaoDescricao = input.UsuarioAreaAtuacaoDescricao;
 
             _context.Update(data);
             _context.SaveChanges();
@@ -69,7 +69,7 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
         public bool Remove(long id)
         {
-            UsuarioAreaAtuacao? data = DbSet.FirstOrDefault(x => x.Id_Usuario_Area_Atuacao.Equals(id));
+            UsuarioAreaAtuacao? data = DbSet.FirstOrDefault(x => x.idUsuarioAreaAtuacao.Equals(id));
             if (data == null) return false;
 
             _context.Remove(data);

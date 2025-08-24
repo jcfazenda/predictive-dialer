@@ -11,14 +11,14 @@ namespace Servives.Domain.Mapping.Usuario
         public void Configure(EntityTypeBuilder<UsuarioCargoAtividade> constuctor)
         {
 
-            constuctor.ToTable("usuario_cargo_atividade");
+            constuctor.ToTable("usuariocargoatividade");
 
-            constuctor.Property(m => m.Id_Usuario_Cargo_Atividade).HasColumnName("Id_Usuario_Cargo_Atividade").IsRequired();
-            constuctor.HasKey(o => o.Id_Usuario_Cargo_Atividade);
+            constuctor.Property(m => m.idUsuarioCargoAtividade).HasColumnName("idUsuarioCargoAtividade").IsRequired();
+            constuctor.HasKey(o => o.idUsuarioCargoAtividade);
 
-            constuctor.Property(m => m.Usuario_Cargo_Atividade_Nome).HasColumnName("Usuario_Cargo_Atividade_Nome");
-            constuctor.Property(m => m.Usuario_Cargo_Atividade_Descricao).HasColumnName("Usuario_Cargo_Atividade_Descricao"); 
-            constuctor.Property(m => m.Fl_Ativo).HasColumnName("Fl_Ativo");
+            constuctor.Property(m => m.UsuarioCargoAtividadeNome).HasColumnName("UsuarioCargoAtividadeNome");
+            constuctor.Property(m => m.UsuarioCargoAtividadeDescricao).HasColumnName("UsuarioCargoAtividadeDescricao"); 
+            constuctor.Property(m => m.Ativo).HasColumnName("Ativo");
 
         }
     }

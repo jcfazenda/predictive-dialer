@@ -2,6 +2,15 @@
 
 using Services.Domain.Models.Usuario;
 using Services.Domain.Views.Output.Usuario;
+using Services.Domain.Views.Output.Campanhas;
+using Services.Domain.Views.Output.Cliente;
+using Services.Domain.Views.Output.Empresa;
+using Services.Domain.Views.Output.Operador;
+using Services.Domain.Views.Output.Telefone;
+using Services.Domain.Views.Output.Usuario;
+using Services.Domain.Views.Output.Usuario;
+
+
 using AutoMapper;
 
 namespace Services.Domain.Mapping
@@ -14,20 +23,93 @@ namespace Services.Domain.Mapping
             #region Usuarios
 
             CreateMap<Usuarios, UsuariosOutput>()
-                .ForMember(f => f.Id_Usuario, t => t.MapFrom(m => m.Id_Usuario))
-                .ForMember(f => f.Id_Cliente, t => t.MapFrom(m => m.Id_Cliente))
+                .ForMember(f => f.idUsuario, t => t.MapFrom(m => m.idUsuario))
+                .ForMember(f => f.idCliente, t => t.MapFrom(m => m.idCliente))
 
-                .ForMember(f => f.Usuario_Nome, t => t.MapFrom(m => m.Usuario_Nome))
-                .ForMember(f => f.Usuario_Sobrenome, t => t.MapFrom(m => m.Usuario_Sobrenome))
-                .ForMember(f => f.Usuario_Email, t => t.MapFrom(m => m.Usuario_Email))
-                .ForMember(f => f.Usuario_Senha, t => t.MapFrom(m => m.Usuario_Senha))
-                .ForMember(f => f.Usuario_Avatar, t => t.MapFrom(m => m.Usuario_Avatar))
-                .ForMember(f => f.Fl_Ativo, t => t.MapFrom(m => m.Fl_Ativo))
-
+                .ForMember(f => f.UsuarioNome, t => t.MapFrom(m => m.UsuarioNome))
+                .ForMember(f => f.UsuarioSobrenome, t => t.MapFrom(m => m.UsuarioSobrenome))
+                .ForMember(f => f.UsuarioEmail, t => t.MapFrom(m => m.UsuarioEmail))
+                .ForMember(f => f.UsuarioSenha, t => t.MapFrom(m => m.UsuarioSenha))
+                .ForMember(f => f.UsuarioAvatar, t => t.MapFrom(m => m.UsuarioAvatar))
+                .ForMember(f => f.Ativo, t => t.MapFrom(m => m.Ativo))
                 ;
 
             #endregion
 
+            #region Campanhas
+
+            CreateMap<Campanhas, CampanhasOutput>()
+                .ForMember(f => f.idCampanha, t => t.MapFrom(m => m.idCampanha))
+                .ForMember(f => f.idEmpresa, t => t.MapFrom(m => m.idEmpresa))
+
+                .ForMember(f => f.CampanhaNome, t => t.MapFrom(m => m.CampanhaNome))
+                .ForMember(f => f.DataSolicitacao, t => t.MapFrom(m => m.DataSolicitacao))
+                .ForMember(f => f.DataEntregaDiscador, t => t.MapFrom(m => m.DataEntregaDiscador))
+                ;
+
+            CreateMap<RegrasDiscagem, RegrasDiscagemOutput>()
+                .ForMember(f => f.idRegra, t => t.MapFrom(m => m.idRegra))
+                .ForMember(f => f.idStatus, t => t.MapFrom(m => m.idStatus))
+
+                .ForMember(f => f.QuantidadeTentativas, t => t.MapFrom(m => m.QuantidadeTentativas))
+                .ForMember(f => f.IntervaloMinutos, t => t.MapFrom(m => m.IntervaloMinutos))
+                ;
+
+            CreateMap<StatusDiscagem, StatusDiscagemOutput>()
+                .ForMember(f => f.idStatus, t => t.MapFrom(m => m.idStatus))
+                .ForMember(f => f.NomeStatus, t => t.MapFrom(m => m.NomeStatus))
+                ;
+
+            #endregion
+
+            #region Clientes
+
+                CreateMap<Clientes, ClientesOutput>()
+                    .ForMember(f => f.idCliente, t => t.MapFrom(m => m.idCliente))
+
+                    .ForMember(f => f.ClienteNome, t => t.MapFrom(m => m.ClienteNome))
+                    .ForMember(f => f.ClienteCpf, t => t.MapFrom(m => m.ClienteCpf))
+                    .ForMember(f => f.ClienteEmail, t => t.MapFrom(m => m.ClienteEmail))
+                    ;
+
+            #endregion
+
+            #region Empresa
+
+                CreateMap<Empresa, EmpresaOutput>()
+                    .ForMember(f => f.idEmpresa, t => t.MapFrom(m => m.idEmpresa))
+                    .ForMember(f => f.EmpresaNome, t => t.MapFrom(m => m.EmpresaNome))
+                    ;
+
+                CreateMap<EmpresaOperador, EmpresaOperadorOutput>()
+                    .ForMember(f => f.idOperador, t => t.MapFrom(m => m.idOperador))
+                    .ForMember(f => f.idEmpresa, t => t.MapFrom(m => m.idEmpresa))
+                    ;
+
+            #endregion
+
+            #region Operador
+
+                CreateMap<Operador, OperadorOutput>()
+                    .ForMember(f => f.idOperador, t => t.MapFrom(m => m.idOperador))
+                    .ForMember(f => f.idStatus, t => t.MapFrom(m => m.idStatus))
+
+                    .ForMember(f => f.OperadorNome, t => t.MapFrom(m => m.OperadorNome))
+                    .ForMember(f => f.Ramal, t => t.MapFrom(m => m.Ramal))
+                    .ForMember(f => f.DataCriacao, t => t.MapFrom(m => m.DataCriacao))
+                    ;
+
+            #endregion 
+
+            #region Telefone
+
+                CreateMap<TiposTelefone, TiposTelefoneOutput>()
+                    .ForMember(f => f.idTipo, t => t.MapFrom(m => m.idTipo))
+                    .ForMember(f => f.Nome, t => t.MapFrom(m => m.Nome)) 
+                    ;
+
+            #endregion
+                        
         }
     }
 }

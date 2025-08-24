@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Services.Domain.Tenant
 {
@@ -21,21 +22,22 @@ namespace Services.Domain.Tenant
                 // Recupera o primeiro segmento da URL (ex: /meudb/api/... -> meudb)
                 var clientSlug = path.Split("/", StringSplitOptions.RemoveEmptyEntries)[0];
 
-                // Busca a connection string dinâmica
+                // Busca a connection string dinâmica (MySQL)
                 var connString = ConfigurationExtensions.GetClientConnectionString(clientSlug);
 
-                // Configura o DbContext para SQL Server
+                // Configura o DbContext para MySQL
                 var optionsBuilder = new DbContextOptionsBuilder<GRCContext>();
-                optionsBuilder.UseSqlServer(
+                optionsBuilder.UseMySql(
                     connString,
-                    sqlOptions =>
+                    ServerVersion.AutoDetect(connString), // Detecta versão do MySQL
+                    mySqlOptions =>
                     {
-                        sqlOptions.EnableRetryOnFailure(); // Mantém retry
-                        sqlOptions.MigrationsAssembly(typeof(GRCContext).Assembly.FullName);
+                        mySqlOptions.EnableRetryOnFailure(); // Retry automático
+                        mySqlOptions.MigrationsAssembly(typeof(GRCContext).Assembly.FullName);
                     }
                 );
 
-                // Só habilite logs sensíveis em DEV
+                // Logs sensíveis em DEV
                 optionsBuilder.EnableSensitiveDataLogging();
 
                 return new GRCContext(optionsBuilder.Options);

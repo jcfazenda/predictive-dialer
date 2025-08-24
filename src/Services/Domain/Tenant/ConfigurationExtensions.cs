@@ -6,28 +6,21 @@ namespace Services.Domain.Tenant
     {
         public static string GetClientConnectionString(string clientName)
         {
-            // Separar o nome do cliente para identificar o DB
+            // Nome do cliente no formato "prefixo_nomeDB"
             var item = clientName.Split('_');
             if (item.Length < 2)
-                throw new ArgumentException("O nome do cliente deve estar no formato 'prefixo-nomeDB'.");
+                throw new ArgumentException("O nome do cliente deve estar no formato 'prefixo_nomeDB'.");
 
-            var dbName = item[1];
+            var dbName = item[0]; // Nome do banco de dados (Railway usa um só por projeto normalmente)
 
-            // Azure SQL padrão
-            var server = "discador-replica.database.windows.net";
-            var user = "discadoradmin";
-            var password = "Apple@56"; // Coloque a senha real aqui
+            // Configurações do Railway
+            var server = "mainline.proxy.rlwy.net";
+            var port = "40765";
+            var user = "root";
+            var password = "ZFGhCvQksLBdYdErakuDHhnlMsanEUfz";
 
-            // Montar connection string
-            return $"Server=tcp:{server},1433;" +
-                   $"Initial Catalog={dbName};" +
-                   $"Persist Security Info=False;" +
-                   $"User ID={user};" +
-                   $"Password={password};" +
-                   $"MultipleActiveResultSets=False;" +
-                   $"Encrypt=True;" +
-                   $"TrustServerCertificate=False;" +
-                   $"Connection Timeout=30;";
+            // Montar connection string no formato MySQL
+            return $"Server={server};Port={port};Database={dbName};Uid={user};Pwd={password};SslMode=Preferred;";
         }
     }
 }

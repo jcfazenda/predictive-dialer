@@ -16,20 +16,21 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
         public IQueryable<Usuarios> GetAccess(UsuariosInput input)
         {
+  
             if (input == null) throw new ArgumentNullException(nameof(input));
 
-            var data = DbSet.Where(x => x.Usuario_Email != null &&
-                                         x.Usuario_Email.Equals(input.Usuario_Email) &&
-                                         x.Usuario_Senha != null &&
-                                         x.Usuario_Senha.Equals(input.Usuario_Senha))
+            var data = DbSet.Where(x => x.UsuarioEmail != null && x.UsuarioEmail.Equals(input.UsuarioEmail) &&
+                                        x.UsuarioSenha != null && x.UsuarioSenha.Equals(input.UsuarioSenha))
                             .AsQueryable();
 
-            return data;
+            return data; 
+
         }
 
         public IQueryable<Usuarios> GetAll(bool active)
         {
-            var data = DbSet.Where(x => x.Fl_Ativo.HasValue && x.Fl_Ativo.Value == active)
+            byte value = (byte)(active ? 1 : 0); // converte bool -> byte
+            var data = DbSet.Where(x => x.Ativo.HasValue && x.Ativo.Value == value)
                             .AsQueryable();
 
             return data;
@@ -37,10 +38,10 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
         public bool UpdateStatus(long id)
         {
-            Usuarios? data = DbSet.FirstOrDefault(x => x.Id_Usuario.Equals(id));
+            var data = DbSet.FirstOrDefault(x => x.idUsuario == id);
             if (data == null) return false;
 
-            data.Fl_Ativo = !(data.Fl_Ativo ?? false);
+            data.Ativo = (byte)((data.Ativo ?? 0) == 1 ? 0 : 1);
 
             _context.Update(data);
             _context.SaveChanges();
@@ -50,17 +51,15 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
         public Usuarios Create(UsuariosInput input)
         {
-            if (input == null) throw new ArgumentNullException(nameof(input));
-
-            Usuarios data = new Usuarios
+            var data = new Usuarios
             {
-                Id_Cliente        = input.Id_Cliente,
-                Usuario_Nome      = input.Usuario_Nome,
-                Usuario_Sobrenome = input.Usuario_Sobrenome,
-                Usuario_Email     = input.Usuario_Email,
-                Usuario_Senha     = input.Usuario_Senha,
-                Usuario_Avatar    = input.Usuario_Avatar,
-                Fl_Ativo          = true
+                idCliente        = input.idCliente,
+                UsuarioNome      = input.UsuarioNome,
+                UsuarioSobrenome = input.UsuarioSobrenome,
+                UsuarioEmail     = input.UsuarioEmail,
+                UsuarioSenha     = input.UsuarioSenha,
+                UsuarioAvatar    = input.UsuarioAvatar,
+                Ativo            = 1
             };
 
             _context.Add(data);
@@ -73,7 +72,7 @@ namespace Services.Domain.Repository.Queryable.Usuario
         {
             if (input == null) return false;
 
-            Usuarios? data = DbSet.FirstOrDefault(x => x.Id_Usuario.Equals(input.Id_Usuario));
+            Usuarios? data = DbSet.FirstOrDefault(x => x.idUsuario.Equals(input.idUsuario));
             if (data == null) return false;
 
             _context.Update(data);
@@ -86,10 +85,10 @@ namespace Services.Domain.Repository.Queryable.Usuario
         {
             if (input == null) return false;
 
-            Usuarios? data = DbSet.FirstOrDefault(x => x.Id_Usuario.Equals(input.Id_Usuario));
+            Usuarios? data = DbSet.FirstOrDefault(x => x.idUsuario.Equals(input.idUsuario));
             if (data == null) return false;
 
-            data.Usuario_Avatar = input.Usuario_Avatar;
+            data.UsuarioAvatar = input.UsuarioAvatar;
 
             _context.Update(data);
             _context.SaveChanges();
@@ -101,10 +100,10 @@ namespace Services.Domain.Repository.Queryable.Usuario
         {
             if (input == null) return false;
 
-            Usuarios? data = DbSet.FirstOrDefault(x => x.Id_Usuario.Equals(input.Id_Usuario));
+            Usuarios? data = DbSet.FirstOrDefault(x => x.idUsuario.Equals(input.idUsuario));
             if (data == null) return false;
 
-            data.Usuario_Senha = input.Usuario_Senha;
+            data.UsuarioSenha = input.UsuarioSenha;
 
             _context.Update(data);
             _context.SaveChanges();
@@ -114,7 +113,7 @@ namespace Services.Domain.Repository.Queryable.Usuario
 
         public bool Remove(long id)
         {
-            Usuarios? data = DbSet.FirstOrDefault(x => x.Id_Usuario.Equals(id));
+            Usuarios? data = DbSet.FirstOrDefault(x => x.idUsuario.Equals(id));
             if (data == null) return false;
 
             _context.Remove(data);
