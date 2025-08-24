@@ -2,7 +2,7 @@ using Services.Domain.Models.Campanha;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Services.Domain.Mapping.Campanhas
+namespace Services.Domain.Mapping.Campanha
 {
     public sealed class RegrasDiscagemMap : IEntityTypeConfiguration<RegrasDiscagem>
     {
@@ -16,12 +16,7 @@ namespace Services.Domain.Mapping.Campanhas
             constructor.Property(m => m.idStatus).HasColumnName("idStatus");
             constructor.Property(m => m.QuantidadeTentativas).HasColumnName("QuantidadeTentativas");
             constructor.Property(m => m.IntervaloMinutos).HasColumnName("IntervaloMinutos"); 
-            
-            // Join com StatusDiscagem
-            constructor.HasOne(r => r.Status)
-                       .WithMany(s => s.Regras)
-                       .HasForeignKey(r => r.idStatus)
-                       .HasPrincipalKey(s => s.idStatus);            
+                     
         }
     }
 }

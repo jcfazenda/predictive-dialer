@@ -4,8 +4,6 @@ using Microsoft.Extensions.Hosting;
 using Services.Domain.Tenant;  // Para AddCustomerDbContext
 using Services.Domain.Repository.Interface.Usuario;
 using Services.Domain.Repository.Queryable.Usuario;
-using System;
-using System.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,9 +25,9 @@ builder.Services.AddCors(options =>
 });
 
 // Configura DbContext dinâmico via tenant
-builder.Services.AddCustomerDbContext(); // <- sem passar builder.Configuration
+builder.Services.AddCustomerDbContext(); // Scoped por request, thread-safe
 
-// Registra repositórios
+// Registra repositórios como Scoped (para usar o DbContext corretamente)
 builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 
 // Swagger/OpenAPI
@@ -52,7 +50,9 @@ app.UseHttpsRedirection();
 
 // Habilita CORS antes de usar autorização
 app.UseCors("CorsPolicy");
+
 app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

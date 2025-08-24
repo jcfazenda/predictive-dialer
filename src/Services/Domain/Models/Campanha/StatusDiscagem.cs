@@ -16,7 +16,7 @@ namespace Services.Domain.Models.Campanha
         }
 
         public long idStatus { get; set; }
-        public string NomeStatus { get; set; }   // Nome do status (Pendente, Bloqueado, CaixaPostal etc.)
+        public string NomeStatus { get; set; }   = string.Empty;
         
         public ICollection<RegrasDiscagem>? Regras { get; set; }
     }

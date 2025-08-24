@@ -1,15 +1,17 @@
 ﻿
-
 using Services.Domain.Models.Usuario;
+using Services.Domain.Models.Campanha;
+using Services.Domain.Models.Cliente;
+using Services.Domain.Models.Empresa;
+using Services.Domain.Models.Operador;
+using Services.Domain.Models.Telefone;
+
 using Services.Domain.Views.Output.Usuario;
-using Services.Domain.Views.Output.Campanhas;
+using Services.Domain.Views.Output.Campanha;
 using Services.Domain.Views.Output.Cliente;
 using Services.Domain.Views.Output.Empresa;
-using Services.Domain.Views.Output.Operador;
-using Services.Domain.Views.Output.Telefone;
-using Services.Domain.Views.Output.Usuario;
-using Services.Domain.Views.Output.Usuario;
-
+using Services.Domain.Views.Output.Operador; 
+using Services.Domain.Views.Output.Telefone; 
 
 using AutoMapper;
 
@@ -76,7 +78,7 @@ namespace Services.Domain.Mapping
 
             #region Empresa
 
-                CreateMap<Empresa, EmpresaOutput>()
+                CreateMap<Empresas, EmpresasOutput>()
                     .ForMember(f => f.idEmpresa, t => t.MapFrom(m => m.idEmpresa))
                     .ForMember(f => f.EmpresaNome, t => t.MapFrom(m => m.EmpresaNome))
                     ;
@@ -90,20 +92,19 @@ namespace Services.Domain.Mapping
 
             #region Operador
 
-                CreateMap<Operador, OperadorOutput>()
+                CreateMap<Operadores, OperadoresOutput>()
                     .ForMember(f => f.idOperador, t => t.MapFrom(m => m.idOperador))
                     .ForMember(f => f.idStatus, t => t.MapFrom(m => m.idStatus))
 
                     .ForMember(f => f.OperadorNome, t => t.MapFrom(m => m.OperadorNome))
-                    .ForMember(f => f.Ramal, t => t.MapFrom(m => m.Ramal))
-                    .ForMember(f => f.DataCriacao, t => t.MapFrom(m => m.DataCriacao))
+                    .ForMember(f => f.Ramal, t => t.MapFrom(m => m.Ramal)) 
                     ;
 
             #endregion 
 
             #region Telefone
 
-                CreateMap<TiposTelefone, TiposTelefoneOutput>()
+                CreateMap<TiposTelefones, TiposTelefonesOutput>()
                     .ForMember(f => f.idTipo, t => t.MapFrom(m => m.idTipo))
                     .ForMember(f => f.Nome, t => t.MapFrom(m => m.Nome)) 
                     ;

@@ -16,11 +16,7 @@ namespace Services.Domain.Mapping.Empresa
 
             constructor.Property(m => m.idEmpresa).HasColumnName("idEmpresa"); 
             
-            // Join com Empresa
-            constructor.HasOne(eo => eo.Empresa)
-                       .WithMany(emp => emp.Operadores)
-                       .HasForeignKey(eo => eo.idEmpresa)
-                       .HasPrincipalKey(emp => emp.idEmpresa);            
+          
         }
     }
 }

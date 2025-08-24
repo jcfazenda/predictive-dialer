@@ -1,6 +1,6 @@
 namespace Services.Domain.Views.Output.Operador
 {
-    public class OperadorOutput
+    public class OperadoresOutput
     {
         public long idOperador { get; set; }
         public long idStatus { get; set; }  // Status atual do operador (ex: livre, ocupado)

@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ModelsClientes = Services.Domain.Models.Cliente; // alias para o namespace
+using Services.Domain.Models.Cliente; 
 
-namespace Services.Domain.Mapping.Clientes
+namespace Services.Domain.Mapping.Cliente
 {
-    public sealed class ClientesMap : IEntityTypeConfiguration<ModelsClientes.Clientes>
+    public sealed class ClientesMap : IEntityTypeConfiguration<Clientes>
     {
-        public void Configure(EntityTypeBuilder<ModelsClientes.Clientes> constructor)
+        public void Configure(EntityTypeBuilder<Clientes> constructor)
         {
             constructor.ToTable("Clientes");
 

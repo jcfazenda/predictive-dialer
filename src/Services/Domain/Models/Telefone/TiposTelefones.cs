@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace Services.Domain.Models.TiposTelefone
+namespace Services.Domain.Models.Telefone
 {
-    public class TiposTelefone
+    public class TiposTelefones
     {
-        public TiposTelefone()
+        public TiposTelefones()
         {
         }
 
-        public TiposTelefone(long idTipo,  string Nome )
+        public TiposTelefones(long idTipo,  string Nome )
         {
             this.idTipo = idTipo;
             this.Nome = Nome; 

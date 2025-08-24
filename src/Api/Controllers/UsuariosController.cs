@@ -24,24 +24,32 @@ namespace Api.Controllers.Usuario
         [HttpPost("Connected")]
         public IActionResult Connected([FromBody] UsuariosInput usuario)
         {
-            if (usuario == null)
-                return Response(false, "warn", "Dados do usuário não fornecidos", null, "warn");
-
-            if (!string.IsNullOrWhiteSpace(usuario.Usuario_Email))
+            try
             {
-                if (!Generics.IsEmail(usuario.Usuario_Email))
-                    return Response(false, "warn", "E-mail inválido", null, "warn");
+                if (usuario == null)
+                    return Response(false, "warn", "Dados do usuário não fornecidos", null, "warn");
+
+                if (!string.IsNullOrWhiteSpace(usuario.UsuarioEmail))
+                {
+                    if (!Generics.IsEmail(usuario.UsuarioEmail))
+                        return Response(false, "warn", "E-mail inválido", null, "warn");
+                }
+
+                usuario.UsuarioSenha = Hash.HashValue(usuario.UsuarioSenha?.Trim() ?? "");
+
+                var user = _usuarios.GetAccess(usuario).FirstOrDefault();
+
+                if (user == null)
+                    return Response(false, "warn", "Não conseguimos localizar você.", null, "warn");
+
+                return Response(true, "success", "Seja bem-vindo.", user, "success");
             }
-
-            usuario.Usuario_Senha = Hash.HashValue(usuario.Usuario_Senha?.Trim() ?? "");
-
-            var user = _usuarios.GetAccess(usuario).FirstOrDefault();
-
-            if (user == null)
-                return Response(false, "warn", "Não conseguimos localizar você.", null, "warn");
-
-            return Response(true, "success", "Seja bem-vindo.", user, "success");
+            catch (Exception ex)
+            {
+                return Response(false, "error", $"Ocorreu um erro: {ex.Message}", null, "error");
+            }
         }
+
 
         [HttpPost("Save")]
         [EnableCors("CorsPolicy")]
@@ -50,7 +58,7 @@ namespace Api.Controllers.Usuario
             if (input == null)
                 return Response(false, "Erro", "Algo inesperado aconteceu.", null, "error");
 
-            if (input.Id_Usuario == 0)
+            if (input.idUsuario == 0)
                 _usuarios.Create(input);
             else
                 _usuarios.Update(input);
@@ -65,7 +73,7 @@ namespace Api.Controllers.Usuario
             if (input == null)
                 return Response(false, "Erro", "Dados inválidos", null, "error");
 
-            if (input.Id_Usuario == 0)
+            if (input.idUsuario == 0)
                 _usuarios.Create(input);
             else
                 _usuarios.Update(input);
@@ -80,7 +88,7 @@ namespace Api.Controllers.Usuario
             if (input == null)
                 return Response(false, "Erro", "Dados inválidos", null, "error");
 
-            var result = _usuarios.Remove(input.Id_Usuario);
+            var result = _usuarios.Remove(input.idUsuario);
 
             if (!result)
                 return Response(false, "Erro", "Usuário não encontrado ou já removido", null, "error");
@@ -88,7 +96,6 @@ namespace Api.Controllers.Usuario
             return Response(true, "Sucesso", "Registro removido com sucesso", result, "success");
         }
 
-        // Corrigido para aceitar data como anulável
         protected new IActionResult Response(bool success, string Title, string Message, object? data, string type)
         {
             return Ok(new

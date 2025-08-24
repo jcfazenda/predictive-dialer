@@ -11,6 +11,7 @@
           "Infrastructure": "1.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.8",
+          "MySqlConnector": "2.4.0",
           "Services": "1.0.0",
           "Swashbuckle.AspNetCore": "9.0.3"
         },

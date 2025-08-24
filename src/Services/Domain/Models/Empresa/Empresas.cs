@@ -16,8 +16,6 @@ namespace Services.Domain.Models.Empresa
 
         public long idEmpresa { get; set; }
         public string EmpresaNome { get; set; } = string.Empty;
-
-        public IEnumerable<Campanha>? Campanhas { get; set; }
-        public IEnumerable<EmpresaOperador>? Operadores { get; set; }
+ 
     }
 }

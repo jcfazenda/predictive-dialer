@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 
 namespace Services.Domain.Models.Cliente
 {
@@ -19,8 +19,6 @@ namespace Services.Domain.Models.Cliente
         public string ClienteNome { get; set; } = string.Empty;
         public string ClienteCpf { get; set; } = string.Empty;
         public string ClienteEmail { get; set; } = string.Empty;
-
-        // Navegação para Campanhas
-        public ICollection<Services.Domain.Models.Campanha.Campanhas>? Campanhas { get; set; }
+  
     }
 }

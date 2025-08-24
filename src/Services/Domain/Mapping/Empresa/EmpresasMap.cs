@@ -4,7 +4,7 @@ using Services.Domain.Models.Empresa; // alias para o namespace
 
 namespace Services.Domain.Mapping.Empresa
 {
-    public sealed class EmpresaMap : IEntityTypeConfiguration<Empresas>
+    public sealed class EmpresasMap : IEntityTypeConfiguration<Empresas>
     {
         public void Configure(EntityTypeBuilder<Empresas> constructor)
         { 

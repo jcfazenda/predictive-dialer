@@ -2,7 +2,7 @@ using Services.Domain.Models.Campanha;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Services.Domain.Mapping.Campanhas
+namespace Services.Domain.Mapping.Campanha
 {
     public sealed class StatusDiscagemMap : IEntityTypeConfiguration<StatusDiscagem>
     {

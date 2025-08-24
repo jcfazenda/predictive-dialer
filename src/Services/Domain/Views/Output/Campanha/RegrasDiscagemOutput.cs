@@ -1,4 +1,4 @@
-namespace Services.Domain.Views.Output.Campanhas
+namespace Services.Domain.Views.Output.Campanha
 {
     public class RegrasDiscagemOutput
     {

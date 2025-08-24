@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <!-- Swagger/OpenAPI -->
+    <PackageReference Include="MySqlConnector" Version="2.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
     
     <!-- Se usar EF Core direto na API, force a mesma versão do Services -->
